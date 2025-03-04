@@ -11,3 +11,12 @@ it("should render message property", () => {
 
     expect(instance.find("h1").text()).toContain("My first test")
 })
+
+it("should render increase counter when button is clicked", async () => {
+    const instance = mount(HelloWorld)
+
+    const button = instance.find("button")
+    await button.trigger("click")
+
+    expect(instance.find("button").text()).toContain("count is 1")
+})
